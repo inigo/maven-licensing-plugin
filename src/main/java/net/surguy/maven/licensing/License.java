@@ -21,6 +21,6 @@ public class License {
 
     @Override
     public String toString() {
-        return "License{name='" + name + '\'' + ", url='" + url + '\'' + '}';
+        return "License{" + (name!=null ? name : "") + ((name!=null && url!=null) ? ", " : "")+ (url!=null ? url : "") + '}';
     }
 }
