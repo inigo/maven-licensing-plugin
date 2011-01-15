@@ -75,7 +75,7 @@ public class LicenseCheckerMojo extends AbstractMojo {
         }
 
         DefaultArtifactCollector collector = new DefaultArtifactCollector();
-        DependencyTreeResolutionListener listener = new DependencyTreeResolutionListener(new ConsoleLogger(Logger.LEVEL_DEBUG, "Resolution"));
+        DependencyTreeResolutionListener listener = new DependencyTreeResolutionListener(new ConsoleLogger(Logger.LEVEL_WARN, "Resolution"));
         try {
             collector.collect(artifacts, project.getArtifact(), project.getManagedVersionMap(),
                     localRepository, project.getRemoteArtifactRepositories(), metadataSource, new ScopeArtifactFilter("compile"),
