@@ -1,1 +1,19 @@
-This file was created by IntelliJ IDEA 10.0.1 for binding GitHub repository
+A Maven plugin for checking the licenses of included Maven dependencies.
+
+To use - add:
+
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>net.surguy</groupId>
+                    <artifactId>maven-licensing-plugin</artifactId>
+                    <version>1.0-SNAPSHOT</version>
+                </plugin>
+            </plugins>
+        </build>
+
+to your POM, and then invoke with:
+    mvn licensing:licenses
+
+This plugin is under the Apache software license, version 2. See
+http://www.apache.org/licenses/LICENSE-2.0 for the full license.
