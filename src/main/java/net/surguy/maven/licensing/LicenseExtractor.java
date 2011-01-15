@@ -23,7 +23,7 @@ import java.util.List;
  * @author Inigo Surguy
  * @created 15/01/2011 14:20
  */
-public class LicenseExtractor {
+class LicenseExtractor {
 
     List<License> retrieveLicense(File pom) throws IOException, SAXException {
         try {

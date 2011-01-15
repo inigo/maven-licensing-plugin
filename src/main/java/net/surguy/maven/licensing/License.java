@@ -6,7 +6,7 @@ package net.surguy.maven.licensing;
  * @author Inigo Surguy
  * @created 15/01/2011 14:17
  */
-public class License {
+class License {
 
     private final String name;
     private final String url;
