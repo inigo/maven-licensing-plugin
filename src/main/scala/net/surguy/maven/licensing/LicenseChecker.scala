@@ -43,16 +43,14 @@ class LicenseChecker(project: MavenProject, localRepository: ArtifactRepository,
 
       def visit(node: DependencyNode):Boolean = {
         depth = depth + 1
-        if (node.getState() != DependencyNode.INCLUDED) return false
-        val scope = node.getArtifact().getScope()
-        // Scope is null for the root dependency
-        if (scope == null || scope == "compile") {
-          val artifact = node.getArtifact()
-          val licenses = getLicenses(artifact)
-          log.info( ("  " * depth) + artifact + licenses )
-          true
-        } else {
-          false
+        node match {
+          case node if node.getState != DependencyNode.INCLUDED => false
+          case node if node.getArtifact.getScope==null || node.getArtifact.getScope=="compile" =>
+            val artifact = node.getArtifact()
+            val licenses = getLicenses(artifact)
+            log.info( ("  " * depth) + artifact + licenses )
+            true
+          case _ => false
         }
       }
 
