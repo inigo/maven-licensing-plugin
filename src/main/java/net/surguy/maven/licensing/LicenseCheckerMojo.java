@@ -34,7 +34,7 @@ import java.util.Set;
  * <p/>
  * Invoke from the command-line with "mvn licensing:licenses".
  *
- * @goal licenses
+ * @goal displaylicense
  * @phase process-sources
  */
 public class LicenseCheckerMojo extends AbstractMojo {
