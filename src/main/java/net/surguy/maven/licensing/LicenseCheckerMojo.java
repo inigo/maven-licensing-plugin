@@ -14,6 +14,7 @@ import org.apache.maven.project.artifact.MavenMetadataSource;
  * @goal displaylicense
  * @phase process-sources
  */
+@SuppressWarnings({"UnusedDeclaration"})
 public class LicenseCheckerMojo extends AbstractMojo {
 
     /**
@@ -38,6 +39,7 @@ public class LicenseCheckerMojo extends AbstractMojo {
      * @required
      * @readonly
      */
+    @SuppressWarnings({"UnusedDeclaration"})
     private MavenMetadataSource metadataSource;
 
     public void execute() throws MojoExecutionException {
