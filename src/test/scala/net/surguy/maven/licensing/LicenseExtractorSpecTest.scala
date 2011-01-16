@@ -19,16 +19,16 @@ class LicenseExtractorSpecTest extends SpecificationWithJUnit {
     }
     "return name and value for a single license" in {
       licensesFor("/apache2.xml") must haveTheSameElementsAs(
-        List(new License("The Apache Software License, Version 2.0", "http://www.apache.org/licenses/LICENSE-2.0")))
+        List(License("The Apache Software License, Version 2.0", "http://www.apache.org/licenses/LICENSE-2.0")))
     }
     "return name and value when the namespace is not specified in the POM" in {
       licensesFor("/apache2.xml") must haveTheSameElementsAs(
-        List(new License("The Apache Software License, Version 2.0", "http://www.apache.org/licenses/LICENSE-2.0")))
+        List(License("The Apache Software License, Version 2.0", "http://www.apache.org/licenses/LICENSE-2.0")))
     }
     "return all results when there is more than one license" in {
       licensesFor("/apache2+gpl3.xml") must haveTheSameElementsAs(
-        List(new License("The Apache Software License, Version 2.0", "http://www.apache.org/licenses/LICENSE-2.0"),
-          new License("GNU General Public License (GPL) v3", "http://www.gnu.org/licenses/gpl.html")
+        List(License("The Apache Software License, Version 2.0", "http://www.apache.org/licenses/LICENSE-2.0"),
+             License("GNU General Public License (GPL) v3", "http://www.gnu.org/licenses/gpl.html")
         ))
     }
   }
