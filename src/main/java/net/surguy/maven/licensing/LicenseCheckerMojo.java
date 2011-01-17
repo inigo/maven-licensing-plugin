@@ -9,7 +9,10 @@ import org.apache.maven.project.artifact.MavenMetadataSource;
 /**
  * Maven plugin to display the licenses of all dependencies, if they are specified in the POM.
  * <p/>
- * Invoke from the command-line with "mvn licensing:licenses".
+ * Invoke from the command-line with "net.surguy:maven-displaylicense-plugin:displaylicense".
+ * <p/>
+ * The majority of the code for this plugin is in Scala - this is only a Java wrapper so Maven's
+ * Javadoc-based dependency injection can be used.
  *
  * @goal displaylicense
  * @phase process-sources

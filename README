@@ -1,6 +1,9 @@
 A Maven plugin for checking the licenses of included Maven dependencies.
 
-To use - add:
+To use, execute 
+    mvn net.surguy:maven-displaylicense-plugin:displaylicense
+
+Alternatively, add:
 
         <build>
             <plugins>
@@ -13,6 +16,13 @@ To use - add:
         </build>
 
 to your POM, and then invoke with:
+    mvn displaylicense:displaylicense
+
+Or add:
+     
+     <pluginGroup>net.surguy</pluginGroup>
+
+to the <pluginGroups> section of your .m2/settings.xml file, and invoke with 
     mvn displaylicense:displaylicense
 
 This plugin is under the Apache software license, version 2. See
