@@ -194,6 +194,13 @@
 
     </dependencies>
 
+    <developers>
+        <developer>
+            <name>Inigo Surguy</name>
+            <url>http://surguy.net/</url>
+        </developer>
+    </developers>
+
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
