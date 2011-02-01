@@ -10,7 +10,7 @@ import tools.nsc.io.{Path, Directory}
  * @author Inigo Surguy
  * @created 1/02/2011
  */
-object ReadAllLicensesTest extends SpecificationWithJUnit {
+class ReadAllLicensesTest extends SpecificationWithJUnit {
   val extractor = new LicenseExtractor()
   val repoDir = new Directory(new File(System.getProperty("user.home")+"/.m2/repository/"))
   val allPoms = repoDir.walkFilter( d => d.isDirectory || d.name.endsWith(".pom") ).toList
