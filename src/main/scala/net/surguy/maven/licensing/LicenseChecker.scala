@@ -48,7 +48,8 @@ class LicenseChecker(project: MavenProject, localRepository: ArtifactRepository,
           case node if node.getArtifact.getScope==null || node.getArtifact.getScope=="compile" =>
             val artifact = node.getArtifact()
             val licenses = getLicenses(artifact)
-            log.info( ("  " * depth) + artifact + licenses )
+            val licenseText = if (licenses.isEmpty) "No license specified" else licenses.mkString("; ")
+            log.info( ("  " * depth) + artifact + " : "+licenseText )
             true
           case _ => false
         }
