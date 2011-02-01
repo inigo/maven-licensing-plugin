@@ -12,7 +12,8 @@ import xml.XML
 class LicenseExtractor {
   def retrieveLicense(pom: File):Seq[License] =
     try {
-      (for (license <- XML.loadFile(pom) \\ "license") yield License(license \ "name" text, license \ "url" text) ).toList
+      (for (license <- XML.loadFile(pom) \\ "license")
+          yield License((license \ "name" text).trim, (license \ "url" text).trim) ).toList
     } catch {
       case _ => List()
     }
