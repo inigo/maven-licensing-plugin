@@ -10,7 +10,11 @@ import xml.XML
  * @created 16/01/2011 22:14
  */
 class LicenseExtractor {
-  def retrieveLicense(pom: File) =
-    (for (license <- XML.loadFile(pom) \\ "license") yield License(license \ "name" text, license \ "url" text) ).toList
+  def retrieveLicense(pom: File):Seq[License] =
+    try {
+      (for (license <- XML.loadFile(pom) \\ "license") yield License(license \ "name" text, license \ "url" text) ).toList
+    } catch {
+      case _ => List()
+    }
 }
 
