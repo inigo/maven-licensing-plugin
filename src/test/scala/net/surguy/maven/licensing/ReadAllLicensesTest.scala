@@ -2,7 +2,7 @@ package net.surguy.maven.licensing
 
 import java.io.File
 import org.specs._
-import tools.nsc.io.{Path, Directory}
+import scala.tools.nsc.io.{Path, Directory}
 
 /**
  * Check that all licenses in the local repository can be read.
@@ -13,9 +13,9 @@ import tools.nsc.io.{Path, Directory}
 class ReadAllLicensesTest extends SpecificationWithJUnit {
   val extractor = new LicenseExtractor()
   val repoDir = new Directory(new File(System.getProperty("user.home")+"/.m2/repository/"))
-  val allPoms = repoDir.walkFilter( d => d.isDirectory || d.name.endsWith(".pom") ).toList
+  val allPoms : List[scala.tools.nsc.io.Path] = repoDir.walkFilter( d => d.isDirectory || d.name.endsWith(".pom") ).toList
 
-  def parsePoms(poms: Seq[Path]) = poms.map( p => extractor.retrieveLicense(p.jfile) )
+  def parsePoms(poms: Seq[scala.tools.nsc.io.Path]) = poms.map( p => extractor.retrieveLicense(p.jfile) )
 
   "reading all licenses" should {
     "not return any errors" in {
