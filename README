@@ -1,7 +1,7 @@
 A Maven plugin for checking the licenses of included Maven dependencies.
 
 To use, execute 
-    mvn net.surguy:maven-displaylicense-plugin:displaylicense
+    mvn net.surguy:maven-displaylicense-plugin:0.5:displaylicense
 
 Alternatively, add:
 
