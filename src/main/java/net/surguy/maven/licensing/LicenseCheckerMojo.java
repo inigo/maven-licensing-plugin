@@ -1,6 +1,7 @@
 package net.surguy.maven.licensing;
 
 import org.apache.maven.artifact.repository.ArtifactRepository;
+import org.apache.maven.artifact.resolver.ArtifactCollector;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.project.MavenProject;
@@ -45,9 +46,19 @@ public class LicenseCheckerMojo extends AbstractMojo {
     @SuppressWarnings({"UnusedDeclaration"})
     private MavenMetadataSource metadataSource;
 
+    /**
+     * The Artifact Collector.
+     *
+     * @component
+     * @required
+     * @readonly
+     */
+    @SuppressWarnings({"UnusedDeclaration"})
+    private ArtifactCollector collector;
+
     public void execute() throws MojoExecutionException {
         assert project != null : "Project is null - dependency injection is not working";
-        LicenseChecker licenseChecker = new LicenseChecker(project, localRepository, metadataSource, getLog());
+        LicenseChecker licenseChecker = new LicenseChecker(project, localRepository, metadataSource, collector, getLog());
         licenseChecker.execute();
     }
 

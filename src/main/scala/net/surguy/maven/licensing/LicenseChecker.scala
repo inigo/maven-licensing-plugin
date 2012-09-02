@@ -26,13 +26,12 @@ import org.apache.maven.plugin.logging.Log
  * @author Inigo Surguy
  * @created 16/01/2011 22:14
  */
-class LicenseChecker(project: MavenProject, localRepository: ArtifactRepository, metadataSource: MavenMetadataSource, log: Log) {
+class LicenseChecker(project: MavenProject, localRepository: ArtifactRepository, metadataSource: MavenMetadataSource, collector: ArtifactCollector, log: Log) {
   val licenseExtractor = new LicenseExtractor()
 
   def execute() {
     val artifacts:Set[Artifact] = project.getDependencies.map(d => toArtifact(d.asInstanceOf[Dependency])).collect{case a: Artifact => a}.toSet
 
-    val collector = new DefaultArtifactCollector()
     val listener = new DependencyTreeResolutionListener(new ConsoleLogger(Logger.LEVEL_WARN, "Resolution"))
     collector.collect(artifacts, project.getArtifact(), project.getManagedVersionMap(),
       localRepository, project.getRemoteArtifactRepositories(), metadataSource, new ScopeArtifactFilter("compile"),
